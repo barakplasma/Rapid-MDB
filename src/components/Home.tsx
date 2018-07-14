@@ -2,6 +2,8 @@ import * as React from "react";
 import * as classnames from "classnames";
 import * as css from "./Home.css";
 
+import Link from 'next/link';
+
 import { MovieSearchInput } from "./MovieSearch";
 import { MovieSearchResultsList } from "./MovieSearchResults";
 import { OMDbMovieSearchResult } from "../LocalTypes/Movie";

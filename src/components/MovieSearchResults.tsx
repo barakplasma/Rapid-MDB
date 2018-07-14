@@ -21,7 +21,9 @@ export const MovieSearchResultsList = (
 ) => {
   const movies = searchResultsToList(searchResults);
   return <ul>
-      {movies.map(movie => <MovieListItem key={movie.Title + movie.Year} {...movie} />)}
+      {movies.map((movie, i) => (
+        <MovieListItem key={i + movie.Title + movie.Year} {...movie} />
+      ))}
     </ul>;
 };
 
