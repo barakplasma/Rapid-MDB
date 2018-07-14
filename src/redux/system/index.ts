@@ -1,7 +1,7 @@
 import {REHYDRATE} from 'redux-persist/constants'
 import {createActions, FAIL, REQUEST, SUCCESS} from '../common'
-import {initializeGa} from '../log/index'
-import {saveUserInfo} from '../persist/index'
+import {initializeGa} from '../log'
+import {saveUserInfo} from '../persist'
 import {Reducer} from 'redux'
 
 const defaultState = {} as SystemState
