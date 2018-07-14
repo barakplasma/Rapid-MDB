@@ -98,14 +98,14 @@ interface Props {
 }
 
 export const fetchAMovieByTitle = async (title: string): Promise<OMDbMovie> => {
-  const res = await fetch(`http://www.omdbapi.com/?t=${title}&apikey=387fe5c2`);
+  const res = await fetch(`https://www.omdbapi.com/?t=${title}&apikey=387fe5c2`);
   const data = await res.json();
   return data;
 };
 
 export const fetchAMovieById = async (imdbID: string): Promise<OMDbMovie> => {
   const res = await fetch(
-    `http://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`
+    `https://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`
   );
   const data = await res.json();
   return data;

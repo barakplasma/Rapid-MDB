@@ -17,6 +17,6 @@ export const MovieSearchInput = (props: {
 );
 
 export const searchForMovies = async (title: string, page?: number): Promise<OMDbMovieSearchResult> =>
-  await fetch(`http://www.omdbapi.com/?s=${title}&apikey=387fe5c2&type=movie${page ? 'page='+page : ''}`).then(
+  await fetch(`https://www.omdbapi.com/?s=${title}&apikey=387fe5c2&type=movie${page ? 'page='+page : ''}`).then(
     res => res.json()
   );
