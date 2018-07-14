@@ -1,4 +1,4 @@
-export type MovieListDisplayParams = Pick<OMDbMovie, 'Title' | 'Year'>;
+export type MovieListDisplayParams = Pick<Search, 'Title' | 'Year' | 'Poster'>;
 export type MoviePageDisplayParams = Partial<OMDbMovie>;
 export interface OMDbMovieSearchResult {
   Search: Search[];
@@ -6,7 +6,7 @@ export interface OMDbMovieSearchResult {
   Response: string;
 }
 
-interface Search {
+export interface Search {
   Title: string;
   Year: string;
   imdbID: string;

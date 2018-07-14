@@ -48,7 +48,9 @@ export default class MovieDetails extends React.Component<Props> {
     const server = !!context.req;
 
     if (server) {
-      props.movieData = await fetchAMovie(context.query.imdbID);
+      props.movieData = context.query.title
+        ? await fetchAMovieByTitle(context.query.title)
+        : await fetchAMovieById(context.query.imdbID);
     }
 
     console.log(props);
@@ -65,7 +67,7 @@ export default class MovieDetails extends React.Component<Props> {
     const vals = Object.values(withoutUnneededDetails);
     return (
       <Layout>
-        <ul>{keys.map((key, i) => <Cell key={key} {...[key, vals[i]]}/>)}</ul>
+        <ul>{keys.map((key, i) => <Cell key={key} {...[key, vals[i]]} />)}</ul>
       </Layout>
     );
   }
@@ -75,11 +77,22 @@ interface Props {
   movieData: OMDbMovie;
 }
 
-export const fetchAMovie = async (imdbID: string): Promise<OMDbMovie> => {
-  // const res = await fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`);
-  // const data = await res.json();
-  // return data;
-  return defaultMovieData;
+export const fetchAMovieByTitle = async (
+  title: string
+): Promise<OMDbMovie> => {
+    const res = await fetch(
+      `http://www.omdbapi.com/?t=${title}&apikey=387fe5c2`
+    );
+    const data = await res.json();
+    return data;
+};
+
+export const fetchAMovieById = async (imdbID: string): Promise<OMDbMovie> => {
+    const res = await fetch(
+      `http://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`
+    );
+    const data = await res.json();
+    return data;
 };
 
 export const removeUnneededDetailsFromMovies = (movieData: OMDbMovie) =>
