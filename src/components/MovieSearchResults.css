@@ -1,0 +1,21 @@
+.movieListItem {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 222px;
+}
+.poster {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+}
+.title {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.year {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.movieListItemContainer {
+  padding-bottom: 1rem;
+}

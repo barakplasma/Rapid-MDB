@@ -44,32 +44,52 @@ const defaultMovieData: OMDbMovie = {
 
 export default class MovieDetails extends React.Component<Props> {
   static async getInitialProps(context) {
-    const props = { movieData: defaultMovieData };
-    const server = !!context.req;
-
-    if (server) {
-      props.movieData = context.query.title
+    const props = {
+      movieData: context.query.title
         ? await fetchAMovieByTitle(context.query.title)
-        : await fetchAMovieById(context.query.imdbID);
-    }
+        : await fetchAMovieById(context.query.imdbID)
+    };
 
     console.log(props);
     return props;
   }
 
   render() {
-    //this.props.movieData
     const withoutUnneededDetails = removeUnneededDetailsFromMovies(
       this.props.movieData
     );
     console.log(withoutUnneededDetails);
     const keys = Object.keys(withoutUnneededDetails);
     const vals = Object.values(withoutUnneededDetails);
-    return (
-      <Layout>
-        <ul>{keys.map((key, i) => <Cell key={key} {...[key, vals[i]]} />)}</ul>
-      </Layout>
-    );
+    return <Layout>
+        {/*language=PostCSS*/}
+        <style jsx>
+          {`
+            .formatMovie {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              grid-template-rows: 1fr;
+              background-color: #424651;
+              color: #af3b6e;
+            }
+            img {
+              grid-row: 1 / 2;
+              grid-column: 1/2;
+            }
+            ul {
+              grid-column: 2/3;
+              grid-row: 1 / 2;
+            }`}
+        </style>
+        <div className="formatMovie">
+          <img src={vals[12]} alt="movie poster" />
+          <ul>
+            {keys.map((key, i) => <li>
+                <Cell key={key+i} {...[key, vals[i]]} />
+              </li>)}
+          </ul>
+        </div>
+      </Layout>;
   }
 }
 
@@ -77,22 +97,18 @@ interface Props {
   movieData: OMDbMovie;
 }
 
-export const fetchAMovieByTitle = async (
-  title: string
-): Promise<OMDbMovie> => {
-    const res = await fetch(
-      `http://www.omdbapi.com/?t=${title}&apikey=387fe5c2`
-    );
-    const data = await res.json();
-    return data;
+export const fetchAMovieByTitle = async (title: string): Promise<OMDbMovie> => {
+  const res = await fetch(`http://www.omdbapi.com/?t=${title}&apikey=387fe5c2`);
+  const data = await res.json();
+  return data;
 };
 
 export const fetchAMovieById = async (imdbID: string): Promise<OMDbMovie> => {
-    const res = await fetch(
-      `http://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`
-    );
-    const data = await res.json();
-    return data;
+  const res = await fetch(
+    `http://www.omdbapi.com/?i=${imdbID}&apikey=387fe5c2`
+  );
+  const data = await res.json();
+  return data;
 };
 
 export const removeUnneededDetailsFromMovies = (movieData: OMDbMovie) =>

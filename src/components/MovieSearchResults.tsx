@@ -20,29 +20,20 @@ export const MovieSearchResultsList = (
   searchResults: OMDbMovieSearchResult
 ) => {
   const movies = searchResultsToList(searchResults);
-  return (
-    <ul>
-      {movies.map(movie => (
-        <Link
-          key={movie.Title + movie.Year}
-          href={{ pathname: "/MovieDetails", query: { title: movie.Title } }}
-        >
-          <a>
-            <MovieListItem {...movie} />
-          </a>
-        </Link>
-      ))}
-    </ul>
-  );
+  return <ul>
+      {movies.map(movie => <MovieListItem key={movie.Title + movie.Year} {...movie} />)}
+    </ul>;
 };
 
 export const MovieListItem = (props: MovieListDisplayParams) => {
   const { Title, Year, Poster } = props;
-  return (
-    <li>
-      <img className={css.poster} alt="Poster" src={Poster} />
-      <Cell {...["Title", Title]} />
-      <Cell {...["Year", Year]} />
-    </li>
-  );
+  return <li className={css.movieListItemContainer}>
+      <Link href={{ pathname: "/MovieDetails", query: { title: Title } }} prefetch>
+        <a className={css.movieListItem}>
+          <img className={css.poster} alt="Poster" src={Poster} />
+          <Cell className={css.title} {...["Title", Title]} />
+          <Cell className={css.year} {...["Year", Year]} />
+        </a>
+      </Link>
+    </li>;
 };

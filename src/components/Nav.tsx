@@ -1,11 +1,9 @@
-import * as React from 'react'
-import Link from 'next/link'
+import * as React from "react";
+import Link from "next/link";
 
-export const Nav = props =>
+export const Nav = props => (
   <nav>
-    <h4>
-      Menu
-    </h4>
+    <h4>Menu</h4>
     <ul>
       <li>
         <Link href="/">
@@ -13,7 +11,7 @@ export const Nav = props =>
         </Link>
       </li>
       <li>
-        <Link href="/MovieDetails">
+        <Link href="/MovieDetails?imdbID=tt0137523">
           <a>View a Movie</a>
         </Link>
       </li>
@@ -29,3 +27,4 @@ export const Nav = props =>
       </li>
     </ul>
   </nav>
+);
