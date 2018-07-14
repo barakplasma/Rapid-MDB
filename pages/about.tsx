@@ -11,6 +11,6 @@ export default props =>
         }
       `}
       </style>
-      StyledJsx
+      About
     </div>
   </Layout>

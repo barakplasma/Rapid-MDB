@@ -3,7 +3,7 @@ import * as classnames from 'classnames'
 import * as css from './Home.css'
 
 export const Home = props =>
-  <div className={classnames('test', css.home)}>
+  <div className={classnames(css.home)}>
     <ul>
       <li>
         usage classnames in Home.tsx

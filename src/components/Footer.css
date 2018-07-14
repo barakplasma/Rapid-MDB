@@ -1,0 +1,6 @@
+@import "Color.css";
+
+.footer {
+  background: var(--colorBackgroundSecondary);
+  color: var(--colorFontSecondary);
+}

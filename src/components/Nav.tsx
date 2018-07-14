@@ -4,27 +4,22 @@ import Link from 'next/link'
 export const Nav = props =>
   <nav>
     <h4>
-      samples
+      Menu
     </h4>
     <ul>
       <li>
         <Link href="/">
-          <a>Home</a>
+          <a>Home - Search</a>
         </Link>
       </li>
       <li>
         <Link href="/SSR">
-          <a>SSR</a>
+          <a>Check SSR</a>
         </Link>
       </li>
       <li>
-        <Link href="/StyledJsx">
-          <a>Styled Jsx</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/ModuleCss">
-          <a>Module CSS</a>
+        <Link href="/about">
+          <a>About</a>
         </Link>
       </li>
     </ul>

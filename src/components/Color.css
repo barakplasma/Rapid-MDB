@@ -1,5 +1,8 @@
 :root {
-  --colorPrimary: #0057AC;
-  --colorSecondary: #FEDF00;
+  --colorBackground: #424651;
+  --colorBackgroundSecondary: #BCE7FD;
+  --colorFontMain: #AF3B6E;
+  --colorFontSecondary: #C492B1;
+  --colorAttention: #21FA90;
 }
 

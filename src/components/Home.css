@@ -1,10 +1,10 @@
-@import 'Color.css';
+@import "Color.css";
 
 .home {
-  color: var(--colorPrimary);
-  background: var(--colorSecondary);
+  color: var(--colorFontMain);
+  background: var(--colorBackground);
   div {
-    background: var(--colorPrimary);
-    color: var(--colorSecondary);
+    background: var(--colorBackgroundSecondary);
+    color: var(--colorFontSecondary);
   }
 }

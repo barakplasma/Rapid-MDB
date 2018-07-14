@@ -16,7 +16,7 @@ export default class extends Document {
 
   render() {
     return (
-      <html lang="ko">
+      <html lang="en">
       <Head>
         <meta
           name="viewport"
