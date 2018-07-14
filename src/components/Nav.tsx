@@ -13,6 +13,11 @@ export const Nav = props =>
         </Link>
       </li>
       <li>
+        <Link href="/MovieDetails">
+          <a>View a Movie</a>
+        </Link>
+      </li>
+      <li>
         <Link href="/SSR">
           <a>Check SSR</a>
         </Link>
