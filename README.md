@@ -1,6 +1,8 @@
 # Open Movie Database Search Front End
 instant search powered with server side rendering.
 
+Kick the tires with https://gitpod.io/#https://github.com/barakplasma/Rapid-MDB
+
 built from the boilerplate at https://github.com/deptno/next.js-typescript-starter-kit ❤
 
 ## Feature
